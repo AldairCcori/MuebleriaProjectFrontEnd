@@ -1,0 +1,112 @@
+<app-navbar></app-navbar>
+<!-- <div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let productos of producto">
+      <mat-card>
+        <img
+          *ngIf="productos?.imagen"
+          src="http://localhost:8080/api/uploads/img/{{ productos.imagen }}"
+          alt="{{ productos.imagen }}"
+          class="img-thumbnail rounded"
+          style="width: 300px; height: 300px"
+        />
+        <mat-card-content>
+          <h2 mat-card-title>{{ productos.nombre }}</h2>
+          <p mat-card-subtitle>Descripcion: {{ productos.descripcion }}</p>
+          <p>Precio: ${{ productos.precio }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="addCart(productos)"
+          >
+            Agregar al carrito
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div> -->
+
+<div class="container mt-4 d-flex mb-5">
+  <div class="row">
+    <div class="col-md-4 mt-5" *ngFor="let productos of producto">
+      <div class="card">
+        <img
+          *ngIf="productos?.imagen"
+          src="http://localhost:8080/api/uploads/img/{{ productos.imagen }}"
+          alt="{{ productos.imagen }}"
+          class="card-img-top w-100"
+          style="width: 400px; height: 400px"
+        />
+        <div class="card-body">
+          <h2 class="card-title">{{ productos.nombre }}</h2>
+          <div class="justify-content-between">
+            <p class="card-text">Descripcion: {{ productos.descripcion }}</p>
+            <p class="card-text mr-4 text-success">
+              Precio: ${{ productos.precio }}
+            </p>
+          </div>
+          <button
+            mat-raised-button
+            color="primary"
+            (click)="addCart(productos)"
+          >
+            Agregar al carrito
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- modal code -->
+
+<div class="modal fade" id="modalId">
+  <div class="modal-dialog bg-success">
+    <div class="modal-content" style="transform: scaleX(1.4)">
+      <div class="modal-header pb-2">
+        <h1 class="font-weight-light ml-4">Descripcion:</h1>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row mt-2 p-3" *ngFor="let productos of producto">
+          <div class="col-md-6">
+            <img
+              *ngIf="productos?.imagen"
+              src="http://localhost:8080/api/uploads/img/{{ productos.imagen }}"
+              alt="{{ productos.imagen }}"
+              class="rounded"
+              width="100%"
+              height="280%"
+            />
+          </div>
+          <div class="col-md-6">
+            <h2 class="product_name">{{ productos.nombre }}</h2>
+            <p style="box-sizing: border-box" class="product_desc">
+              Descripcion: {{ productos.descripcion }}
+            </p>
+            <p>
+              Clasificacion: &nbsp;&nbsp;&nbsp;
+              <i class="fa fa-star text-warning ml-2"></i>
+              <i class="fa fa-star text-warning ml-2"></i>
+              <i class="fa fa-star text-warning ml-2"></i>
+              <i class="fa fa-star text-warning ml-2"></i>
+              <i class="fa fa-star ml-2"></i>
+            </p>
+            <h4 class="product_price">Precio: ${{ productos.precio }}</h4>
+            <button class="btn btn-success mt-2" style="width: 150px"></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

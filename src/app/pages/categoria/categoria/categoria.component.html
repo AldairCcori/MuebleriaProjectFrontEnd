@@ -1,0 +1,125 @@
+<app-navbar></app-navbar>
+<h1>Listado de categorias</h1>
+
+<div class="card border-primary mb-3">
+  <div class="card-header">Productos</div>
+  <div class="card-body text-primary">
+    <h5 class="card-title">Listado De categorias</h5>
+
+    <div class="my-2 text-left" *ngIf="isAdmin">
+      <button
+        class="btn btn-rounded btn-primary"
+        [routerLink]="['/categoria/form']"
+        data-toggle="modal"
+        data-target="#modalId"
+      >
+        Crear Nueva Categoria
+      </button>
+    </div>
+    <div *ngIf="categoria.length == 0" class="alert alert-info">
+      No hay registros en la base de datos
+    </div>
+
+    <table
+      class="table table-bordered table-striped"
+      *ngIf="categoria.length > 0"
+    >
+      <thead>
+        <tr>
+          <th>id</th>
+          <th>nombre</th>
+          <th>Editar Categoria</th>
+          <th>Eliminar Categoria</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let categorias of categoria">
+          <td>{{ categorias.id }}</td>
+          <td>{{ categorias.descripcion }}</td>
+          <td *ngIf="isAdmin">
+            <button
+              type="button"
+              [routerLink]="['/categoria/form', categorias.id]"
+              class="btn btn-primary"
+            >
+              Editar categoria
+            </button>
+          </td>
+          <td>
+            <button (click)="deleteProducto(categorias)" class="btn btn-danger">
+              Eliminar Categoria
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- modal code -->
+
+<!-- <div class="modal fade" id="modalId">
+  <div class="modal-dialog bg-success">
+    <div class="modal-content" style="transform: scaleX(1.4)">
+      <div class="modal-header pb-2">
+        <h1 class="font-weight-light ml-4">Descripcion:</h1>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <h1>Formulario con Subida de Foto</h1>
+        <form>
+          <div class="form-group row my-2">
+            <label for="nombre" class="col-form-label col-sm-2"
+              >Nombre de la categoria:</label
+            >
+            <div class="col-sm-6">
+              <input
+                type="text"
+                class="form-control"
+                [(ngModel)]="categori.descripcion"
+                name="descripcion"
+                placeholder="Ingresa tu nombre"
+              />
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-sm-6 text-center">
+              <button
+                class="btn btn-primary"
+                role="button"
+                (click)="createCategoria()"
+                *ngIf="!categori.id; else elseBlock"
+              >
+                Ingresa
+              </button>
+              <ng-template #elseBlock>
+                <button
+                  class="btn btn-primary"
+                  role="button"
+                  (click)="updateCategoria()"
+                >
+                  Editar
+                </button>
+              </ng-template>
+              <button
+                class="btn btn-danger"
+                role="button"
+                type="reset"
+                style="margin-left: 20px"
+              >
+                Limpiar
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div> -->

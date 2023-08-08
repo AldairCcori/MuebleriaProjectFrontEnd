@@ -1,0 +1,62 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row" style="margin-top: 20px">
+      <div class="col-md-6 offset-md-3">
+        <h1 class="text-center">Registrate El producto aqui</h1>
+
+        <form (ngSubmit)="create()">
+          <mat-form-field class="full-width">
+            <mat-label>Nombre del producto</mat-label>
+            <input
+              [(ngModel)]="producto.nombre"
+              matInput
+              name="run"
+              placeholder="Ingrese el nombre completo"
+            />
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Descripcion completo</mat-label>
+            <textarea
+              [(ngModel)]="producto.descripcion"
+              matInput
+              name="descripcion"
+            ></textarea>
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Cantidad</mat-label>
+            <input
+              [(ngModel)]="producto.cantidad"
+              matInput
+              name="cantidad"
+              placeholder="Ingrese la cantidad"
+            />
+          </mat-form-field>
+
+          <mat-form-field class="full-width">
+            <mat-label>Precio</mat-label>
+            <input
+              [(ngModel)]="producto.precio"
+              matInput
+              name="precio"
+              placeholder="Ingrese su precio"
+            />
+          </mat-form-field>
+
+          <div class="container text-center">
+            <button mat-raised-button color="primary">Ingresa</button>
+            <button
+              type="reset"
+              style="margin-left: 20px"
+              mat-raised-button
+              color="warn"
+            >
+              Limpiar
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

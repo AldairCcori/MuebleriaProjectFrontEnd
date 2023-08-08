@@ -1,0 +1,26 @@
+/* .main-container{
+
+    overflow: hidden;
+  
+    .product-img {
+      width: 400px;
+      height: 400px;
+  
+    }
+  
+    .left-side{
+      float: left;
+    }
+  
+  
+    
+  } */
+
+.card:hover{
+  box-shadow: 20px 20px 80px -44px #000;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+}
+
+
+  

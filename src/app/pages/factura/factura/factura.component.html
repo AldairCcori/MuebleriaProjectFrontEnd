@@ -1,0 +1,58 @@
+<app-navbar></app-navbar>
+<div class="invoice">
+  <div class="invoice-header text-center">
+    <h2>Muebleria Carlitos</h2>
+    <p>Direccion: Bonilla #451</p>
+    <p>Teléfono: 537-384-563</p>
+    <p>Correo electrónico: carlitos.muebles@empresa.com</p>
+  </div>
+
+  <div class="invoice-details">
+    <div class="row">
+      <div class="col-sm-6"><strong>Fecha:</strong> {{ this.createAt }}</div>
+      <div class="col-sm-6">
+        <strong>Número de factura:</strong>{{ this.id }}
+      </div>
+    </div>
+  </div>
+
+  <div class="invoice-client-details">
+    <h4>Datos del Cliente:</h4>
+    <p><strong>Rut:</strong>{{ this.rutCliente }}</p>
+    <p><strong>Nombre:</strong>{{ this.nombreCliente }}</p>
+    <p><strong>Apellido:</strong>{{ this.apellidoCliente }}</p>
+    <p><strong>Dirección:</strong>{{ this.direccion }}</p>
+    <p><strong>Teléfono:</strong> {{ this.telefonoCliente }}</p>
+    <p><strong>Correo electrónico:</strong> {{ this.correoCliente }}</p>
+  </div>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Producto</th>
+        <th>Cantidad</th>
+        <th>Precio unitario</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let element of detalle">
+        <td>{{ element.nombre }}</td>
+        <td>{{ element.cantidad }}</td>
+        <td>{{ element.precio }}</td>
+        <td>{{ element.total }}</td>
+      </tr>
+      <!-- Repite esta fila para cada servicio/producto -->
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="3" class="text-right invoice-total">Total:</td>
+        <td>{{ this.total }}</td>
+      </tr>
+    </tfoot>
+  </table>
+
+  <div class="invoice-thankyou text-center">
+    <p>¡Gracias por su preferencia!</p>
+  </div>
+</div>

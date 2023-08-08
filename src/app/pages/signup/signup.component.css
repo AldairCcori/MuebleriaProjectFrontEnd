@@ -1,0 +1,85 @@
+form {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  mat-label {
+    font-weight: bold;
+  }
+  
+  mat-icon {
+    color: #ccc;
+    font-size: 20px;
+    margin-right: 8px;
+  }
+  
+  mat-form-field .mat-form-field-label {
+    color: #888;
+  }
+  
+  mat-form-field .mat-form-field-underline {
+    background-color: #ccc;
+  }
+  
+  mat-form-field .mat-input-element {
+    border-radius: 4px;
+    border: none;
+    box-shadow: none;
+    padding: 12px 16px;
+    font-size: 16px;
+    background-color: #f5f5f5;
+  }
+  
+  mat-form-field .mat-input-element:focus {
+    outline: none;
+    background-color: #fff;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  mat-form-field .mat-form-field-infix {
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    padding: 4px;
+    margin-bottom: 8px;
+  }
+  
+  mat-form-field .mat-form-field-infix .mat-form-field-prefix {
+    margin-right: 8px;
+  }
+  
+  mat-form-field .mat-form-field-infix .mat-form-field-suffix {
+    margin-left: 8px;
+  }
+  
+  button[type="submit"] {
+    background-color: #1e88e5;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #1565c0;
+  }
+  
+  .error-message {
+    color: #f44336;
+    font-size: 14px;
+    margin-top: 4px;
+    display: block;
+  }

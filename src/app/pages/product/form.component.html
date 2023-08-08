@@ -1,0 +1,114 @@
+<app-navbar></app-navbar>
+<br />
+<div class="card bg-dark text-white">
+  <div class="card-header">titulo</div>
+  <div class="card-body">
+    <h1>Crea un nuevo producto</h1>
+    <form>
+      <div class="form-group row my-2">
+        <label for="nombre" class="col-form-label col-sm-2"
+          >Nombre del producto:</label
+        >
+        <div class="col-sm-6">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="producto.nombre"
+            name="nombre"
+            placeholder="Ingresa el nombre del producto"
+          />
+        </div>
+      </div>
+      <div class="form-group row my-2">
+        <label for="descripcion" class="col-form-label col-sm-2"
+          >Descripcion:</label
+        >
+        <div class="col-sm-6">
+          <textarea
+            [(ngModel)]="producto.descripcion"
+            type="descripcion"
+            class="form-control"
+            name="descripcion"
+          ></textarea>
+        </div>
+      </div>
+      <div class="form-group row my-2">
+        <label for="precio" class="col-form-label col-sm-2"
+          >Precio del producto</label
+        >
+        <div class="col-sm-6">
+          <input
+            [(ngModel)]="producto.precio"
+            type="text"
+            class="form-control"
+            name="precio"
+            placeholder="Ingresa el precio del producto"
+          />
+        </div>
+      </div>
+      <div class="form-group row my-2">
+        <label for="cantidad" class="col-form-label col-sm-2"
+          >Cantidad del producto</label
+        >
+        <div class="col-sm-6">
+          <input
+            [(ngModel)]="producto.cantidad"
+            type="text"
+            class="form-control"
+            name="cantidad"
+            placeholder="Ingresa la cantidad"
+          />
+        </div>
+      </div>
+      <div class="form-group row my-2">
+        <label for="categoria" class="col-form-label col-sm-2"
+          >Selecciona categoria</label
+        >
+        <div class="col-sm-6">
+          <select
+            [compareWith]="compararCategoria"
+            [(ngModel)]="producto.categoriaProducto"
+            type="text"
+            class="form-control"
+            name="categoria"
+            placeholder="Ingresa tu nombre"
+          >
+            <option [ngValue]="undefined">Selecciona una categoria</option>
+            <option *ngFor="let categoria of categorias" [ngValue]="categoria">
+              {{ categoria.descripcion }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-6 text-center">
+          <button
+            class="btn btn-primary"
+            role="button"
+            (click)="create()"
+            *ngIf="!producto.id; else elseBlock"
+          >
+            Ingresa
+          </button>
+          <ng-template #elseBlock>
+            <button
+              class="btn btn-primary"
+              role="button"
+              (click)="updateProducto()"
+            >
+              Editar
+            </button>
+          </ng-template>
+          <button
+            class="btn btn-danger"
+            role="button"
+            type="reset"
+            style="margin-left: 20px"
+          >
+            Limpiar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,41 @@
+ /* Estilos personalizados */
+ body {
+  background-color: #f7f7f7;
+  font-family: Arial, sans-serif;
+}
+
+.invoice {
+  background-color: #fff;
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.invoice-header h2 {
+  margin: 0;
+  color: #333;
+}
+
+.invoice-details div {
+  color: #777;
+}
+
+.invoice-items th {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+.invoice-total {
+  font-weight: bold;
+}
+
+.invoice-footer {
+  color: #777;
+}
+
+.invoice-thankyou {
+  margin-top: 20px;
+}

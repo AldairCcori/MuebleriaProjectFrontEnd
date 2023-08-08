@@ -1,0 +1,44 @@
+<app-navbar></app-navbar>
+<mat-card>
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form #f="ngForm" (ngSubmit)="onLogin()" novalidate>
+      <mat-form-field>
+        <input
+          [(ngModel)]="nombreUsuario"
+          matInput
+          placeholder="nombreUsuario"
+          name="nombreUsuario"
+          type="text"
+          required
+        />
+      </mat-form-field>
+      <mat-form-field>
+        <input
+          [(ngModel)]="password"
+          matInput
+          placeholder="password"
+          name="password"
+          type="password"
+          required
+        />
+      </mat-form-field>
+      <div class="container text-center">
+        <button mat-raised-button color="primary" [disabled]="!f.valid">
+          Login
+        </button>
+        <button
+          routerLink="/signup"
+          style="margin-left: 20px"
+          mat-raised-button
+          color="accent"
+        >
+          Registrate
+        </button>
+      </div>
+    </form>
+    <div *ngIf="f.submitted" class="alert alert-danger mt-3">
+      Fail en el login: {{ errMsj }}
+    </div>
+  </mat-card-content>
+</mat-card>

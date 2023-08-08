@@ -1,0 +1,124 @@
+<app-navbar></app-navbar>
+
+<div class="container mt-4">
+  <h2 class="mb-4">Registro de Clientes</h2>
+  <form #f="ngForm" (ngSubmit)="buy()" novalidate>
+    <div class="form-group">
+      <label for="nombre">Rut del usario:</label>
+      <input
+        [(ngModel)]="rutUsuario"
+        [disabled]="!isUserAuthenticated"
+        type="text"
+        class="form-control"
+        name="rutUsuario"
+        placeholder="Ingrese su rut 9999999-9"
+      />
+    </div>
+    <div class="form-group">
+      <label for="nombre">Nombre del cliente:</label>
+      <input
+        [(ngModel)]="nombre"
+        [disabled]="!isUserAuthenticated"
+        type="text"
+        class="form-control"
+        name="nombre"
+        placeholder="Ingrese su nombre"
+      />
+    </div>
+    <div class="form-group">
+      <label for="nombre">Apellido del cliente:</label>
+      <input
+        [(ngModel)]="apellidoPaterno"
+        [disabled]="!isUserAuthenticated"
+        type="text"
+        class="form-control"
+        name="apellidoPaterno"
+        placeholder="Ingrese su apellido"
+      />
+    </div>
+    <div class="form-group">
+      <label for="direccion">Dirección:</label>
+      <input
+        [(ngModel)]="direccion"
+        [readonly]="!isUserAuthenticated"
+        type="text"
+        class="form-control"
+        name="direccion"
+        placeholder="Ingrese su dirección"
+      />
+    </div>
+    <div class="form-group">
+      <label for="telefono">Teléfono:</label>
+      <input
+        [(ngModel)]="telefono"
+        [readonly]="!isUserAuthenticated"
+        type="text"
+        class="form-control"
+        name="telefono"
+        placeholder="Ingrese su teléfono"
+      />
+    </div>
+    <div class="form-group">
+      <label for="email">Correo electrónico:</label>
+      <input
+        [(ngModel)]="email"
+        [readonly]="!isUserAuthenticated"
+        type="email"
+        class="form-control"
+        name="email"
+        placeholder="Ingrese su correo electrónico"
+      />
+    </div>
+
+    <h2 class="mb-4">Carrito de Compra</h2>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Precio Unitario</th>
+          <th>Total</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of myCart$ | async">
+          <td>{{ item.nombre }}</td>
+          <td>
+            <button
+              class="btn btn-sm btn-danger"
+              (click)="actualizarUnidades('minus', item.id)"
+            >
+              -
+            </button>
+            {{ item.cantidad }}
+            <button
+              class="btn btn-sm btn-success"
+              (click)="actualizarUnidades('add', item.id)"
+            >
+              +
+            </button>
+          </td>
+          <td>$ {{ item.precio }}</td>
+          <td>$ {{ calcularTotal(item.precio, item.cantidad) }}</td>
+          <td>
+            <button
+              class="btn btn-sm btn-danger"
+              (click)="deleteProduct(item.id)"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td colspan="3" class="text-right font-weight-bold">Total:</td>
+          <td colspan="2">$ {{ totalCart() }}</td>
+        </tr>
+      </tfoot>
+    </table>
+    <button type="submit" class="btn btn-primary btn-block">Comprar</button>
+  </form>
+</div>

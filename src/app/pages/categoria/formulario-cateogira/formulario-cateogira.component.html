@@ -1,0 +1,53 @@
+<app-navbar></app-navbar>
+<br />
+<div class="card bg-dark text-white">
+  <div class="card-header">titulo</div>
+  <div class="card-body">
+    <h1>Formulario con Subida de Foto</h1>
+    <form>
+      <div class="form-group row my-2">
+        <label for="nombre" class="col-form-label col-sm-2"
+          >Nombre de la categoria:</label
+        >
+        <div class="col-sm-6">
+          <input
+            type="text"
+            class="form-control"
+            [(ngModel)]="categoria.descripcion"
+            name="descripcion"
+            placeholder="Ingresa tu nombre"
+          />
+        </div>
+      </div>
+      <div class="form-group row">
+        <div class="col-sm-6 text-center">
+          <button
+            class="btn btn-primary"
+            role="button"
+            (click)="createCategoria()"
+            *ngIf="!categoria.id; else elseBlock"
+          >
+            Ingresa
+          </button>
+          <ng-template #elseBlock>
+            <button
+              class="btn btn-primary"
+              role="button"
+              (click)="updateCategoria()"
+            >
+              Editar
+            </button>
+          </ng-template>
+          <button
+            class="btn btn-danger"
+            role="button"
+            type="reset"
+            style="margin-left: 20px"
+          >
+            Limpiar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
